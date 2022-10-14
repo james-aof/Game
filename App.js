@@ -66,7 +66,7 @@ const ProfileScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Image source={woodsIm} style={styles.image} />
-      <Text style={styles.text}>
+      <Text style={styles.textn}>
         Two roads diverged in a yellow wood...Not really
       </Text>
       <Button title="Let's go" onPress={() => navigation.navigate("pg2")} />
@@ -78,7 +78,7 @@ const GP1 = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Image source={pokeb} style={styles.imagePoke} />
-      <Text>
+      <Text style={styles.text}>
         You walked on the road, and saw a wild Roi standing in front of you
       </Text>
       <Button
@@ -99,7 +99,9 @@ const GP2 = ({ navigation, route }) => {
     return (
       <View style={styles.container}>
         <Image source={woodsIm} style={styles.image} />
-        <Text>Two roads diverged in a yellow wood...not really, still</Text>
+        <Text style={styles.textn}>
+          Two roads diverged in a yellow wood...not really, still
+        </Text>
         <Button
           title="last chance to give up and quit the game"
           onPress={() => navigation.navigate("Welcome")}
@@ -123,7 +125,7 @@ const GP2 = ({ navigation, route }) => {
   } else {
     return (
       <View style={styles.dend}>
-        <Text>
+        <Text style={styles.textn}>
           No one can step into the same exact river for a second time, you died
           because you tried to redo your decision here
         </Text>
@@ -143,7 +145,9 @@ const GP3 = ({ navigation, route }) => {
     return (
       <View style={styles.container}>
         <Image source={woodsIm} style={styles.image} />
-        <Text>Nice, Roi is gone now, and you can keep going!</Text>
+        <Text style={styles.textn}>
+          Nice, Roi is gone now, and you can keep going!
+        </Text>
         <Button
           title="Keep Going"
           onPress={() => {
@@ -157,7 +161,7 @@ const GP3 = ({ navigation, route }) => {
     return (
       <View style={styles.container}>
         <Image source={woodsIm} style={styles.image} />
-        <Text>
+        <Text style={styles.textn}>
           Hummmmm...interesting. You have walked {count} steps forward
         </Text>
         <Button
@@ -179,7 +183,7 @@ const GP3 = ({ navigation, route }) => {
     return (
       <View style={styles.container}>
         <Image source={woodsIm} style={styles.image} />
-        <Text>
+        <Text style={styles.text}>
           You have walked too far away and missed your chance to enter the
           secrete route, too bad
         </Text>
@@ -219,7 +223,7 @@ const GP5 = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Image source={woodsIm} style={styles.image} />
-      <Text>
+      <Text style={styles.textn}>
         You walked to the road with more woods and found the wild Roi sleeping
       </Text>
       <Button
@@ -238,7 +242,9 @@ const GP6 = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Image source={woodsIm} style={styles.image} />
-      <Text>You followed the secret route and found Roi's secret place</Text>
+      <Text style={styles.textn}>
+        You followed the secret route and found Roi's secret place
+      </Text>
       <Button
         title="capture Roi"
         onPress={() => {
@@ -262,7 +268,7 @@ const GP7 = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Image source={woodsIm} style={styles.image} />
-      <Text>
+      <Text style={styles.textn}>
         You successfully captured Roi! And Roi traded the ability to time travel
         for his freedom
       </Text>
@@ -301,7 +307,7 @@ const DP = ({ navigation, route }) => {
   if (cn <= 2) {
     return (
       <View style={styles.dend}>
-        <Text>You died! For {cn} time.</Text>
+        <Text style={styles.textn}>You died! For {cn} time.</Text>
         <Button
           title="Restart"
           onPress={() => {
@@ -315,7 +321,7 @@ const DP = ({ navigation, route }) => {
   if (cn <= 4) {
     return (
       <View style={styles.dend}>
-        <Text>
+        <Text style={styles.textn}>
           You died...SO MANY TIMES!!! you really suck at this game or you were
           trying to find some Easter Eggs?
         </Text>
@@ -397,6 +403,12 @@ const styles = StyleSheet.create({
   text: {
     margin: 10,
     fontFamily: "serif",
-    fontSize: 15,
+    color: "red",
+    fontSize: 23,
+  },
+  textn: {
+    margin: 10,
+    fontFamily: "sans-serif",
+    fontSize: 23,
   },
 });
