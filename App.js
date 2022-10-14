@@ -51,7 +51,7 @@ const MyStack = () => {
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container2}>
-      <Button title="猪比start?" onPress={() => navigation.navigate("pg1")} />
+      <Button title="start?" onPress={() => navigation.navigate("pg1")} />
     </View>
   );
 };
