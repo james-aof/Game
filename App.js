@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
+  ImageBackground,
 } from "react-native";
 import woodsIm from "./two_roads.jpeg";
 import pokeb from "./Poke_Ball.webp";
@@ -50,9 +51,9 @@ const MyStack = () => {
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container2}>
+    <ScrollView contentContainerStyle={styles.container2}>
       <Button title="start?" onPress={() => navigation.navigate("pg1")} />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -64,19 +65,19 @@ export default MyStack;
 
 const ProfileScreen = ({ navigation, route }) => {
   return (
-    <View style={styles.container}>
-      <Image source={woodsIm} style={styles.image} />
+    <ScrollView contentContainerStyle={styles.container}>
+      <ImageBackground source={woodsIm} style={styles.image} />
       <Text style={styles.textn}>
         Two roads diverged in a yellow wood...Not really
       </Text>
       <Button title="Let's go" onPress={() => navigation.navigate("pg2")} />
-    </View>
+    </ScrollView>
   );
 };
 
 const GP1 = ({ navigation, route }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Image source={pokeb} style={styles.imagePoke} />
       <Text style={styles.text}>
         You walked on the road, and saw a wild Roi standing in front of you
@@ -89,7 +90,7 @@ const GP1 = ({ navigation, route }) => {
         title="Try to capture Roi"
         onPress={() => navigation.navigate("pgdie")}
       />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -97,7 +98,7 @@ const GP2 = ({ navigation, route }) => {
   let [cnt, setcnt] = useState(0);
   if (cnt < 1) {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Image source={woodsIm} style={styles.image} />
         <Text style={styles.textn}>
           Two roads diverged in a yellow wood...not really, still
@@ -120,11 +121,11 @@ const GP2 = ({ navigation, route }) => {
             navigation.navigate("pg6");
           }}
         />
-      </View>
+      </ScrollView>
     );
   } else {
     return (
-      <View style={styles.dend}>
+      <ScrollView contentContainerStyle={styles.dend}>
         <Text style={styles.textn}>
           No one can step into the same exact river for a second time, you died
           because you tried to redo your decision here
@@ -134,7 +135,7 @@ const GP2 = ({ navigation, route }) => {
           title="Go back to home page and restart"
           onPress={() => navigation.navigate("Welcome")}
         />
-      </View>
+      </ScrollView>
     );
   }
 };
@@ -143,7 +144,7 @@ const GP3 = ({ navigation, route }) => {
   let [count, setcount] = useState(0);
   if (count == 0) {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Image source={woodsIm} style={styles.image} />
         <Text style={styles.textn}>
           Nice, Roi is gone now, and you can keep going!
@@ -155,11 +156,11 @@ const GP3 = ({ navigation, route }) => {
             navigation.navigate("pg5");
           }}
         />
-      </View>
+      </ScrollView>
     );
   } else if (count <= 20) {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Image source={woodsIm} style={styles.image} />
         <Text style={styles.textn}>
           Hummmmm...interesting. You have walked {count} steps forward
@@ -177,7 +178,7 @@ const GP3 = ({ navigation, route }) => {
             navigation.navigate("pg7");
           }}
         />
-      </View>
+      </ScrollView>
     );
   } else if (count <= 40) {
     return (
@@ -240,7 +241,7 @@ const GP5 = ({ navigation, route }) => {
 const GP6 = ({ navigation, route }) => {
   let [count, setcount] = useState(0);
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Image source={woodsIm} style={styles.image} />
       <Text style={styles.textn}>
         You followed the secret route and found Roi's secret place
@@ -259,14 +260,14 @@ const GP6 = ({ navigation, route }) => {
           navigation.navigate("Welcome");
         }}
       />
-    </View>
+    </ScrollView>
   );
 };
 
 const GP7 = ({ navigation, route }) => {
   let [count, setcount] = useState(0);
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Image source={woodsIm} style={styles.image} />
       <Text style={styles.textn}>
         You successfully captured Roi! And Roi traded the ability to time travel
@@ -287,7 +288,7 @@ const GP7 = ({ navigation, route }) => {
           navigation.navigate("pgwint");
         }}
       />
-    </View>
+    </ScrollView>
   );
 };
 
