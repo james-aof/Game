@@ -34,14 +34,14 @@ const MyStack = () => {
           options={{ title: "PokeRoi" }}
           initialParams={{ isActivated: activated }}
         />
-        <Stack.Screen name="pg1" component={ProfileScreen} />
-        <Stack.Screen name="pg2" component={GP1} />
-        <Stack.Screen name="pg3" component={GP2} />
-        <Stack.Screen name="pg4" component={GP3} />
-        <Stack.Screen name="pg5" component={GP4} />
-        <Stack.Screen name="pg6" component={GP5} />
-        <Stack.Screen name="pg7" component={GP6} />
-        <Stack.Screen name="pg8" component={GP7} />
+        <Stack.Screen name="startpage" component={ProfileScreen} />
+        <Stack.Screen name="encounter" component={GP1} />
+        <Stack.Screen name="back_to_road_diverged" component={GP2} />
+        <Stack.Screen name="Roi_gone" component={GP3} />
+        <Stack.Screen name="dead_end" component={GP4} />
+        <Stack.Screen name="roi_sleeping" component={GP5} />
+        <Stack.Screen name="secrete_route!" component={GP6} />
+        <Stack.Screen name="captured_roi!" component={GP7} />
         <Stack.Screen name="pgwint" component={WP} />
         <Stack.Screen name="pgdie" component={DP} />
       </Stack.Navigator>
@@ -52,7 +52,7 @@ const MyStack = () => {
 const HomeScreen = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={styles.container2}>
-      <Button title="start?" onPress={() => navigation.navigate("pg1")} />
+      <Button title="start?" onPress={() => navigation.navigate("startpage")} />
     </ScrollView>
   );
 };
@@ -70,7 +70,10 @@ const ProfileScreen = ({ navigation, route }) => {
       <Text style={styles.textn}>
         Two roads diverged in a yellow wood...Not really
       </Text>
-      <Button title="Let's go" onPress={() => navigation.navigate("pg2")} />
+      <Button
+        title="Let's go"
+        onPress={() => navigation.navigate("encounter")}
+      />
     </ScrollView>
   );
 };
@@ -84,7 +87,7 @@ const GP1 = ({ navigation, route }) => {
       </Text>
       <Button
         title="Run away from the dangerous Roi"
-        onPress={() => navigation.navigate("pg3")}
+        onPress={() => navigation.navigate("back_to_road_diverged")}
       />
       <Button
         title="Try to capture Roi"
@@ -111,14 +114,14 @@ const GP2 = ({ navigation, route }) => {
           title="Go back to the old road"
           onPress={() => {
             setcnt(cnt + 1);
-            navigation.navigate("pg4");
+            navigation.navigate("Roi_gone");
           }}
         />
         <Button
           title="Go to the one with more woods"
           onPress={() => {
             setcnt(cnt + 1);
-            navigation.navigate("pg6");
+            navigation.navigate("roi_sleeping");
           }}
         />
       </ScrollView>
@@ -153,7 +156,7 @@ const GP3 = ({ navigation, route }) => {
           title="Keep Going"
           onPress={() => {
             setcount(count + 1);
-            navigation.navigate("pg5");
+            navigation.navigate("dead_end");
           }}
         />
       </ScrollView>
@@ -169,13 +172,13 @@ const GP3 = ({ navigation, route }) => {
           title="Keep Going"
           onPress={() => {
             setcount(count + 1);
-            navigation.navigate("pg4");
+            navigation.navigate("Roi_gone");
           }}
         />
         <Button
           title="Secret route"
           onPress={() => {
-            navigation.navigate("pg7");
+            navigation.navigate("secrete_route!");
           }}
         />
       </ScrollView>
@@ -192,7 +195,7 @@ const GP3 = ({ navigation, route }) => {
           title="Keep Going"
           onPress={() => {
             setcount(count + 1);
-            navigation.navigate("pg4");
+            navigation.navigate("Roi_gone");
           }}
         />
       </View>
@@ -250,7 +253,7 @@ const GP6 = ({ navigation, route }) => {
         title="capture Roi"
         onPress={() => {
           setcount(count + 1);
-          navigation.navigate("pg8");
+          navigation.navigate("captured_roi!");
         }}
       />
       <Button
@@ -277,8 +280,8 @@ const GP7 = ({ navigation, route }) => {
         title="back to the road diverged"
         onPress={() => {
           setcount(count + 1);
-          navigation.navigate("pg2");
-          navigation.navigate("pg3");
+          navigation.navigate("encounter");
+          navigation.navigate("back_to_road_diverged");
         }}
       />
       <Button
@@ -313,7 +316,7 @@ const DP = ({ navigation, route }) => {
           title="Restart"
           onPress={() => {
             cn = cn + 1;
-            navigation.navigate("pg1");
+            navigation.navigate("startpage");
           }}
         />
       </View>
@@ -330,7 +333,7 @@ const DP = ({ navigation, route }) => {
           title="Restart"
           onPress={() => {
             cn = cn + 1;
-            navigation.navigate("pg1");
+            navigation.navigate("startpage");
           }}
         />
       </View>
