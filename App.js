@@ -22,6 +22,9 @@ let deviceW = Dimensions.get("screen").width;
 let deviceH = Dimensions.get("screen").height;
 let cn = 1;
 
+/*
+ * Function that held all the screens as a stack in a navigation container
+ */
 const MyStack = () => {
   const [activated, setActivated] = useState(true);
 
@@ -49,6 +52,9 @@ const MyStack = () => {
   );
 };
 
+/*
+ * HomeScreen content wrapped inside a scroll view, and below which are the other screens in the stack
+ */
 const HomeScreen = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={styles.container2}>
@@ -97,6 +103,10 @@ const GP1 = ({ navigation, route }) => {
   );
 };
 
+/*
+ * cnt is a local variable and will be reset everytime when we navigate from the GP1 in the stack to GP2
+ * but cnt will increase and when navigating from other screens, a dead ending occurs
+ */
 const GP2 = ({ navigation, route }) => {
   let [cnt, setcnt] = useState(0);
   if (cnt < 1) {
@@ -307,6 +317,7 @@ const WP = ({ navigation, route }) => {
   );
 };
 
+/* death page, cn is a global variable and will not be reset, it will be used to keep track of number of deathes */
 const DP = ({ navigation, route }) => {
   if (cn <= 2) {
     return (
@@ -360,6 +371,7 @@ const DP = ({ navigation, route }) => {
   }
 };
 
+/*style settings for images, views, text, scrollviews, etc*/
 const styles = StyleSheet.create({
   color: {
     flex: 1,
